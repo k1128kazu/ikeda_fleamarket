@@ -1,0 +1,3005 @@
+body {
+    margin: 0;
+    font-family: "Hiragino Kaku Gothic ProN", Arial, sans-serif;
+    background: #fff;
+}
+
+/* ヘッダー */
+.header {
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    height: 40px;
+}
+
+.header-center {
+    flex: 1;
+    text-align: center;
+}
+
+.search-input {
+    width: 400px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: none;
+}
+
+.header-right a {
+    color: #fff;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sell-btn {
+    background: #fff;
+    color: #000 !important;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* タブ */
+.tab-menu {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    padding: 15px 40px;
+}
+
+.tab {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.tab.active {
+    color: red;
+}
+
+/* 商品一覧 */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 40px;
+}
+
+.product-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background: #eee;
+}
+
+.product-name {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #000;
+}
+/* 商品詳細画面 */
+.detail-container {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.detail-image img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.detail-info {
+    flex: 1;
+}
+
+.detail-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.detail-price {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.detail-icons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.icon-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.icon-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.detail-description {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.detail-login-btn {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
+.detail-buy-btn {
+    display: block;
+    width: 100%;
+    background: #ff4b4b;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.detail-brand {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.detail-meta p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.category-tag {
+    background: #eee;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 5px;
+    font-size: 12px;
+}
+.detail-wrapper {
+    display: flex;
+    max-width: 1100px;
+    margin: 40px auto;
+    gap: 50px;
+}
+
+.detail-left {
+    width: 450px;
+}
+
+.detail-img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.detail-right {
+    flex: 1;
+}
+
+.detail-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.detail-brand {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.detail-price {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.detail-icons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.icon-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.icon-box img {
+    width: 24px;
+}
+
+.buy-btn {
+    display: block;
+    background: #ff4b4b;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+
+.section-title {
+    font-weight: bold;
+    margin: 20px 0 10px;
+}
+
+.category-tag {
+    background: #eee;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.comment-box {
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.comment-user {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment-input {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.comment-btn {
+    background: #ff4b4b;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+/* ヘッダー */
+.site-header {
+    background: #000;
+    padding: 10px 20px;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    height: 30px;
+}
+
+.header-nav a,
+.logout-btn {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* ログイン画面 */
+.login-container {
+    width: 400px;
+    margin: 80px auto;
+}
+
+.login-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.login-group {
+    margin-bottom: 15px;
+}
+
+.login-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ff4b4b;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* 会員登録リンク（青字） */
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.register-link a {
+    color: #0066ff;
+    text-decoration: none;
+    font-size: 14px;
+}
+/* ログイン画面 */
+.login-container {
+    width: 480px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 24px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.login-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.login-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.login-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background: #ff4b4b;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    opacity: 0.9;
+}
+
+.login-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* 会員登録リンク（青字） */
+.register-link {
+    margin-top: 20px;
+}
+
+.register-link a {
+    color: #0066ff;
+    text-decoration: none;
+    font-size: 14px;
+}
+/* ===== ヘッダー ===== */
+.header {
+    background: #000;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    height: 30px;
+}
+
+.header-right {
+    margin-left: auto;
+}
+
+.header-right a,
+.logout-btn {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ===== ログイン画面 ===== */
+.login-container {
+    width: 420px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.login-group {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.login-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.login-input {
+    width: 100%;
+    height: 40px;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.login-btn {
+    width: 100%;
+    height: 45px;
+    background: #ff5b5b;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.register-link {
+    margin-top: 20px;
+}
+
+.register-link a {
+    color: #0066ff;
+    font-size: 14px;
+    text-decoration: none;
+}
+/* ===== ヘッダー ===== */
+.header {
+    background: #000;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    height: 30px;
+}
+
+/* ===== ログイン画面 ===== */
+.login-container {
+    width: 420px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.login-group {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.login-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.login-input {
+    width: 100%;
+    height: 42px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-btn {
+    width: 100%;
+    height: 48px;
+    background: #ff5b5b;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.register-link {
+    margin-top: 25px;
+}
+
+.register-link a {
+    color: #0066ff;
+    font-size: 14px;
+    text-decoration: none;
+}
+.profile-container {
+    max-width: 600px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.profile-title {
+    font-size: 22px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.profile-image-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.profile-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #ddd;
+    object-fit: cover;
+}
+
+.image-select-btn {
+    color: #ff4b4b;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.profile-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.profile-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.profile-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.profile-btn {
+    width: 100%;
+    padding: 14px;
+    background: #ff4b4b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.profile-image-area {
+    display: flex;
+    flex-direction: row;
+    /* 横並び */
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    /* 丸とボタンの間隔 */
+    margin-bottom: 40px;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    white-space: nowrap;
+}
+
+.sell-btn {
+    background: #fff;
+    color: #000 !important;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.header {
+    background: #000;
+    padding: 10px 20px;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 32px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-right a,
+.logout-btn {
+    color: #fff;
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.sell-btn {
+    background: #fff;
+    color: #000 !important;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.header-inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.sell-btn {
+    background: #fff;
+    color: #000 !important;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.header-inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.header-right a,
+.logout-btn {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.sell-btn {
+    background: #fff;
+    color: #000 !important;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background: #000;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-right a,
+.logout-btn {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* 出品ボタン（白背景・黒文字） */
+.sell-btn {
+    background: #fff;
+    color: #000 !important;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+/* 出品ボタン 強制表示 */
+a.sell-btn {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    padding: 6px 14px !important;
+    border-radius: 4px !important;
+    font-weight: bold !important;
+    border: 1px solid #000 !important;
+    display: inline-block !important;
+}
+.sold-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: red;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 8px;
+    font-weight: bold;
+}
+.no-item-message {
+    text-align: center;
+    color: #666;
+    margin-top: 40px;
+    font-size: 14px;
+}
+.purchase-container {
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.purchase-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.purchase-wrapper {
+    display: flex;
+    gap: 40px;
+}
+
+.purchase-left {
+    display: flex;
+    gap: 20px;
+}
+
+.purchase-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.purchase-item-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.purchase-price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.purchase-right {
+    flex: 1;
+}
+
+.purchase-section {
+    margin-bottom: 30px;
+}
+
+.purchase-label {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.purchase-link {
+    color: #0066ff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.purchase-btn {
+    width: 100%;
+    background: #ff4b4b;
+    color: #fff;
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* ===== 購入画面（PDF 7ページ準拠） ===== */
+
+.purchase-page {
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.purchase-main {
+    display: flex;
+    gap: 60px;
+}
+
+.purchase-image-area img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.purchase-info-area {
+    flex: 1;
+}
+
+.purchase-item-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.purchase-item-price {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.purchase-block {
+    margin-bottom: 30px;
+}
+
+.purchase-label {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.purchase-link {
+    color: #0066ff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.purchase-submit-btn {
+    width: 100%;
+    background: #ff4b4b;
+    color: #fff;
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* ===== 購入画面（画面イメージ.pdf 7ページ） ===== */
+
+.purchase-page {
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.purchase-layout {
+    display: flex;
+    gap: 40px;
+}
+
+.purchase-left {
+    flex: 2;
+}
+
+.purchase-item {
+    display: flex;
+    gap: 20px;
+}
+
+.purchase-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.purchase-item-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.purchase-item-price {
+    font-size: 18px;
+}
+
+.purchase-section {
+    margin: 20px 0;
+}
+
+.purchase-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.purchase-select {
+    width: 200px;
+    padding: 6px;
+}
+
+.purchase-address-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.purchase-address-header a {
+    color: #0066ff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.purchase-right {
+    flex: 1;
+}
+
+.purchase-summary {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.purchase-btn {
+    width: 100%;
+    background: #ff4b4b;
+    color: #fff;
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.purchase-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.purchase-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.purchase-summary {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 30px 0;
+}
+/* ===== 購入画面 強制縦レイアウト ===== */
+.purchase-layout {
+    display: block !important;
+}
+
+.purchase-layout>* {
+    display: block !important;
+    width: 100% !important;
+}
+/* ===== 購入画面（画面イメージ.pdf 7ページ準拠） ===== */
+.purchase7 {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 40px;
+    position: relative;
+}
+
+/* 上段3カラム（左が広い・中央/右は同じ幅） */
+.purchase7 .p7-top {
+    display: grid;
+    grid-template-columns: 2.2fr 1.2fr 1.4fr;
+    column-gap: 60px;
+    align-items: start;
+}
+
+/* 各カラムの縦線（スクショの縦罫線） */
+.purchase7 .p7-col {
+    min-height: 160px;
+    position: relative;
+}
+
+.purchase7 .p7-col:not(:first-child) {
+    border-left: 1px solid #cfcfcf;
+    padding-left: 50px;
+}
+
+/* 左：商品 */
+.purchase7 .p7-item-row {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+}
+
+.purchase7 .p7-thumb {
+    width: 120px;
+    height: 120px;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.purchase7 .p7-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.purchase7 .p7-item-name {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+.purchase7 .p7-item-price {
+    font-size: 18px;
+}
+
+/* 見出し */
+.purchase7 .p7-title {
+    font-weight: bold;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+/* 支払い方法 */
+.purchase7 .p7-select {
+    width: 260px;
+    height: 34px;
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    padding: 4px 10px;
+    background: #fff;
+}
+
+/* 配送先 */
+.purchase7 .p7-ship-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.purchase7 .p7-link {
+    color: #0066ff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.purchase7 .p7-addr {
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* 左側の横罫線（支払い方法の下～配送先の下にある線） */
+.purchase7 .p7-left-rule {
+    margin-top: 30px;
+    width: 66%;
+    border-top: 1px solid #cfcfcf;
+}
+
+/* 右側エリア（サマリーBOX＋ボタン） */
+.purchase7 .p7-right-area {
+    width: 34%;
+    margin-left: auto;
+    margin-top: -130px;
+    /* スクショの位置合わせ：右が少し上に来る */
+}
+
+/* サマリーBOX（2段・区切り線あり） */
+.purchase7 .p7-summary {
+    border: 1px solid #cfcfcf;
+    background: #fff;
+}
+
+.purchase7 .p7-srow {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 22px;
+    font-size: 14px;
+}
+
+.purchase7 .p7-srow-top {
+    border-bottom: 1px solid #cfcfcf;
+}
+
+/* 購入ボタン（スクショと同じ幅感） */
+.purchase7 .p7-buy-btn {
+    margin-top: 22px;
+    width: 100%;
+    height: 54px;
+    background: #ff4b4b;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* ===== 購入画面（PDF7ページ準拠・ズレない版） ===== */
+.p7v2 {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 40px;
+}
+
+/* 3列＋2段の固定レイアウト */
+.p7v2-grid {
+    display: grid;
+    grid-template-columns: 2.2fr 1.3fr 1.6fr;
+    grid-template-rows: auto auto;
+    column-gap: 60px;
+    row-gap: 30px;
+    align-items: start;
+}
+
+/* 位置指定 */
+.p7v2-item {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.p7v2-pay {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.p7v2-ship {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.p7v2-rule {
+    grid-column: 1 / 3;
+    grid-row: 2;
+}
+
+.p7v2-right {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+/* 上段の縦線（2列目と3列目の左） */
+.p7v2-pay,
+.p7v2-ship {
+    border-left: 1px solid #cfcfcf;
+    padding-left: 50px;
+    min-height: 160px;
+}
+
+/* 商品 */
+.p7v2-itemRow {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+}
+
+.p7v2-thumb {
+    width: 120px;
+    height: 120px;
+    background: #eee;
+}
+
+.p7v2-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.p7v2-name {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+.p7v2-price {
+    font-size: 18px;
+}
+
+/* 見出し */
+.p7v2-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+
+/* 支払い方法 */
+.p7v2-select {
+    width: 300px;
+    height: 34px;
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    padding: 4px 10px;
+    background: #fff;
+}
+
+/* 配送先 */
+.p7v2-shipHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.p7v2-link {
+    color: #0066ff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.p7v2-addr {
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* 左側の横線（スクショ通り：左2列だけ） */
+.p7v2-rule {
+    border-top: 1px solid #cfcfcf;
+    height: 1px;
+    margin-top: 20px;
+}
+
+/* 右側：サマリー */
+.p7v2-summary {
+    border: 1px solid #cfcfcf;
+    background: #fff;
+}
+
+.p7v2-sRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 22px;
+    font-size: 14px;
+}
+
+.p7v2-sRowTop {
+    border-bottom: 1px solid #cfcfcf;
+}
+
+/* 購入ボタン（右列の幅いっぱい） */
+.p7v2-buy {
+    margin-top: 22px;
+    width: 100%;
+    height: 54px;
+    background: #ff4b4b;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* ===== 購入画面（画面仕様完全準拠） ===== */
+.purchase-page {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 40px;
+}
+
+.purchase-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 60px;
+    align-items: start;
+}
+
+/* 左カラム */
+.purchase-left {
+    font-size: 14px;
+}
+
+.purchase-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.purchase-image {
+    width: 120px;
+    height: 120px;
+    background: #eee;
+    object-fit: cover;
+}
+
+.purchase-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.purchase-price {
+    font-size: 16px;
+}
+
+.purchase-section {
+    margin: 20px 0;
+}
+
+.purchase-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.purchase-select {
+    width: 260px;
+    height: 34px;
+    border: 1px solid #ccc;
+}
+
+.purchase-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.purchase-link {
+    color: #0066ff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.purchase-address {
+    margin-top: 10px;
+    line-height: 1.8;
+}
+
+.purchase-left hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+/* 右カラム */
+.purchase-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.purchase-summary {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background: #fff;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.purchase-button {
+    width: 100%;
+    height: 56px;
+    background: #ff4b4b;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* ===== 購入画面：仕様固定（最終） ===== */
+.p7final {
+    max-width: 1200px !important;
+    margin: 40px auto !important;
+    padding: 0 40px !important;
+}
+
+.p7final-wrap {
+    display: grid !important;
+    grid-template-columns: 1fr 520px !important;
+    /* 左：広い、右：BOX＋ボタン */
+    gap: 60px !important;
+    align-items: start !important;
+}
+
+/* 左：縦積み */
+.p7final-left {
+    display: block !important;
+}
+
+/* 商品（画像＋文字） */
+.p7final-item {
+    display: flex !important;
+    gap: 24px !important;
+    align-items: flex-start !important;
+}
+
+.p7final-itemImg {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover !important;
+    background: #eee !important;
+}
+
+.p7final-itemTxt {
+    margin-top: 6px !important;
+}
+
+.p7final-itemName {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    margin-bottom: 10px !important;
+}
+
+.p7final-itemPrice {
+    font-size: 16px !important;
+}
+
+/* 区切り線 */
+.p7final-hr {
+    border: none !important;
+    border-top: 1px solid #cfcfcf !important;
+    margin: 24px 0 !important;
+}
+
+/* 支払い方法・配送先ブロック */
+.p7final-block {
+    margin-bottom: 0 !important;
+}
+
+.p7final-label {
+    font-weight: bold !important;
+    margin-bottom: 12px !important;
+}
+
+.p7final-select {
+    width: 280px !important;
+    height: 34px !important;
+    border: 1px solid #cfcfcf !important;
+    background: #fff !important;
+}
+
+/* 配送先 */
+.p7final-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.p7final-link {
+    color: #0066ff !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+}
+
+.p7final-addr {
+    margin-top: 12px !important;
+    line-height: 1.9 !important;
+    font-size: 14px !important;
+}
+
+/* 右：BOX＋ボタン（縦積み） */
+.p7final-right {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 22px !important;
+}
+
+.p7final-summary {
+    border: 1px solid #cfcfcf !important;
+    background: #fff !important;
+}
+
+.p7final-srow {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 18px 22px !important;
+    font-size: 14px !important;
+}
+
+.p7final-srowTop {
+    border-bottom: 1px solid #cfcfcf !important;
+}
+
+.p7final-buy {
+    width: 100% !important;
+    height: 56px !important;
+    background: #ff4b4b !important;
+    color: #fff !important;
+    border: none !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+}
+/* ====== 購入画面：レイアウト強制（仕様どおり） ====== */
+.purchase-page .purchase-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 40px;
+}
+
+/* 左：画像＋支払い方法＋配送先（縦に積む） */
+.purchase-page .purchase-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 商品情報（画像とテキストは横） */
+.purchase-page .purchase-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.purchase-page .purchase-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.purchase-page .purchase-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.purchase-page .purchase-name {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.purchase-page .purchase-price {
+    font-size: 18px;
+    margin: 0;
+}
+
+/* 区切り線 */
+.purchase-page hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 25px 0;
+}
+
+/* 左側ブロック（支払い方法・配送先は縦） */
+.purchase-page .purchase-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.purchase-page .purchase-label {
+    font-weight: bold;
+    margin: 0;
+}
+
+.purchase-page .purchase-select {
+    width: 260px;
+    height: 40px;
+}
+
+/* 配送先ヘッダ（「変更する」は右寄せ） */
+.purchase-page .purchase-address-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.purchase-page .purchase-change {
+    color: #0066ff;
+    text-decoration: none;
+}
+
+/* 右：サマリー＋購入ボタン */
+.purchase-page .purchase-right {
+    width: 420px;
+    flex: 0 0 420px;
+}
+
+.purchase-page .purchase-summary {
+    border: 1px solid #ddd;
+}
+
+.purchase-page .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-top: 1px solid #ddd;
+}
+
+.purchase-page .summary-row:first-child {
+    border-top: none;
+}
+
+.purchase-page .purchase-btn {
+    width: 100%;
+    margin-top: 25px;
+    height: 56px;
+    background: #ff4b4b;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* 共通ブロック：余白のみ（線は出さない） */
+.purchase-page .purchase-block {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+/* 配送先の下だけラインを出す */
+.purchase-page .purchase-left .purchase-block:last-of-type {
+    border-bottom: 1px solid #ddd;
+}
+/* 配送先変更画面（仕様準拠・固定幅） */
+.address-container {
+    max-width: 600px;
+    /* ← 仕様の見た目 */
+    margin: 60px auto;
+}
+
+.address-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.address-block {
+    margin-bottom: 20px;
+}
+
+.address-block input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.address-btn {
+    width: 100%;
+    background: #ff5a5a;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.header {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header-left,
+.header-center,
+.header-right {
+    flex: 1;
+}
+
+.header-center {
+    text-align: center;
+}
+
+.header-search-input {
+    width: 300px;
+    padding: 8px 12px;
+}
+/* ヘッダー共通 */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 80px;
+    background: #000;
+}
+
+.header-left,
+.header-center,
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-left {
+    flex: 0 0 auto;
+}
+
+.header-center {
+    flex: 1;
+    justify-content: center;
+}
+
+.header-right {
+    flex: 0 0 auto;
+    gap: 20px;
+}
+
+/* ロゴ */
+.header-logo-img {
+    height: 32px;
+}
+
+/* 検索ボックス（仕様どおり広め） */
+.header-search-input {
+    width: 420px;
+    /* ← 狭すぎ問題を解消 */
+    max-width: 100%;
+    padding: 8px 12px;
+}
+/* 商品一覧 */
+.item-index {
+    padding: 40px;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.item-card img {
+    width: 100%;
+    height: auto;
+}
+
+/* ヘッダー検索 */
+.header-search-input {
+    width: 600px;
+    /* ← ここで十分広くなる */
+}
+/* おすすめ / マイリスト 間隔調整 */
+.tab-menu {
+    display: flex;
+    gap: 40px;
+    /* ← この数値で文字の間隔を広げる */
+    margin-bottom: 20px;
+}
+/* マイリストを赤字にする */
+.tab-menu a[href*="mylist"] {
+    color: red;
+    font-weight: bold;
+}
+/* 商品一覧 */
+.item-index {
+    padding: 40px;
+}
+
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.item-image-wrapper {
+    position: relative;
+}
+
+.item-card img {
+    width: 100%;
+    height: auto;
+}
+
+/* SOLD ラベル */
+.sold-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
+    color: #fff;
+    font-weight: bold;
+    padding: 6px 10px;
+    font-size: 14px;
+}
+/* ヘッダー全体を左右いっぱいに広げる */
+.header {
+    background: #000;
+    padding: 10px 0;
+}
+
+/* 中身を最大幅にせず、端まで使う */
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    /* ← これで左右端に寄る */
+}
+
+/* ロゴをさらに左に寄せたい場合 */
+.header-left {
+    margin-left: 0;
+}
+
+/* 右側リンクをさらに右に寄せる */
+.header-right {
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+}
+/* ===== ヘッダー位置 強制上書き ===== */
+
+/* ヘッダーを画面いっぱいにする */
+.header {
+    width: 100vw;
+    background: #000;
+    padding: 10px 0;
+}
+
+/* 中央寄せ・max-width を完全解除 */
+.header-inner {
+    width: 100%;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ロゴを完全に左へ */
+.header-left {
+    margin: 0 !important;
+    padding: 0;
+}
+
+/* 右リンク群を完全に右へ */
+.header-right {
+    margin: 0 !important;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+/* =========================
+   マイページ（プロフィール）
+========================= */
+
+.mypage-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ユーザー情報 */
+.mypage-user {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.mypage-user-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.mypage-user-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* タブ */
+.mypage-tabs {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.mypage-tab {
+    font-size: 16px;
+    color: #666;
+    text-decoration: none;
+}
+
+.mypage-tab.active {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+/* 商品一覧 */
+.mypage-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* 商品カード */
+.mypage-item-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.mypage-item-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.mypage-item-info {
+    margin-top: 10px;
+}
+
+.mypage-item-name {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.mypage-item-price {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.mypage-item-sold {
+    display: inline-block;
+    margin-top: 5px;
+    color: red;
+    font-weight: bold;
+}
+/* ==========================
+   プロフィール画面
+========================== */
+
+.profile-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* 上部 */
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 編集ボタン（右・赤枠） */
+.profile-edit-btn {
+    padding: 8px 16px;
+    border: 1px solid #ff4b4b;
+    color: #ff4b4b;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* タブ */
+.profile-tabs {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.profile-tab {
+    color: #000;
+    text-decoration: none;
+    padding-bottom: 8px;
+}
+
+.profile-tab.active {
+    color: red;
+    font-weight: bold;
+}
+
+/* ★ ライン */
+.profile-divider {
+    border-bottom: 1px solid #ccc;
+    margin: 16px 0 32px;
+}
+
+/* 商品一覧 */
+.profile-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.profile-item-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.profile-item-sold {
+    color: red;
+    font-weight: bold;
+}
+/* ===== プロフィール上部の微調整（画像と名前を近づける） ===== */
+
+.profile-header {
+    display: flex;
+    align-items: center;
+}
+
+.profile-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    /* 画像とユーザー名の距離 */
+}
+
+.profile-right {
+    margin-left: auto;
+}
+/* ユーザー画像と名前の距離を確実に調整 */
+.profile-image {
+    margin-right: 32px;
+}
+/* ==========================
+   プロフィール編集（仕様画像寄せ）
+========================== */
+
+.profile-edit-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+.profile-edit-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0 35px;
+}
+
+.profile-edit-form {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* 画像行（左：丸画像 / 右：画像を選択） */
+.profile-edit-image-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 28px;
+}
+
+.profile-edit-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #e5e5e5;
+}
+
+/* ★ここが重要：画像が広がらないように固定 */
+.profile-edit-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ファイル input は隠してボタン化 */
+.profile-edit-file {
+    display: none;
+}
+
+.profile-edit-image-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border: 1px solid #ff4b4b;
+    color: #ff4b4b;
+    background: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* 入力 */
+.profile-edit-group {
+    margin-bottom: 22px;
+}
+
+.profile-edit-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.profile-edit-input {
+    width: 100%;
+    height: 40px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+/* エラー */
+.form-error {
+    color: red;
+    font-size: 13px;
+    margin: 6px 0 0;
+}
+
+/* 更新ボタン */
+.profile-edit-submit {
+    width: 100%;
+    height: 44px;
+    margin-top: 18px;
+    border: none;
+    background: #ff4b4b;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* ===== 出品画面（sell）専用 ===== */
+
+.sell-page {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sell-page .form-group {
+    margin-bottom: 24px;
+}
+
+.sell-page .form-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.sell-page .category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.sell-page .price-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sell-page .error {
+    color: red;
+    font-size: 13px;
+    margin-top: 4px;
+}
+/* 検索ボックスを元のサイズに完全復元 */
+.header-search input {
+    width: 520px;
+    /* ← 横幅を元の感覚に戻す */
+    height: 48px;
+    /* 縦幅は前回指定どおり */
+    padding: 0 16px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+/* ===== 出品画面（画面仕様4ページ準拠） ===== */
+
+.sell-wrapper {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.sell-page-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 32px;
+}
+
+.sell-block {
+    margin-bottom: 40px;
+}
+
+.sell-block-title {
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.sell-image-box {
+    border: 1px solid #ccc;
+    padding: 24px;
+    width: 100%;
+}
+
+.sell-field {
+    margin-bottom: 24px;
+}
+
+.sell-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.sell-category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+}
+
+.sell-input,
+.sell-select,
+.sell-textarea {
+    width: 100%;
+    padding: 8px;
+}
+
+.sell-textarea {
+    height: 120px;
+}
+
+.sell-price-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sell-submit {
+    text-align: center;
+    margin-top: 40px;
+}
+/* ===== 出品画面（画面仕様4ページ準拠）※このページだけ ===== */
+.sell-page {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.sell-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.sell-section {
+    margin-bottom: 28px;
+}
+
+.sell-label {
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.sell-field {
+    margin-top: 14px;
+}
+
+.sell-field-label {
+    font-weight: 700;
+    margin: 10px 0 10px;
+}
+
+.sell-input,
+.sell-select,
+.sell-textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cfcfcf;
+    box-sizing: border-box;
+}
+
+.sell-textarea {
+    height: 140px;
+}
+
+.sell-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sell-yen {
+    font-weight: 700;
+}
+
+/* 商品画像：赤枠／中央／赤字リンク */
+.sell-image-box {
+    border: 2px solid #e60023;
+    padding: 26px 16px;
+    text-align: center;
+}
+
+.sell-file-input {
+    display: none;
+}
+
+.sell-image-link {
+    color: #e60023;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.sell-image-note {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #666;
+}
+
+/* カテゴリー：赤丸枠のピル（中にカテゴリ名） */
+.sell-category-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 14px;
+}
+
+.sell-cat-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sell-cat-pill {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 2px solid #e60023;
+    border-radius: 999px;
+    cursor: pointer;
+    user-select: none;
+    line-height: 1;
+}
+
+/* 選択時（必要なら仕様に合わせてON表現） */
+.sell-cat-input:checked+.sell-cat-pill {
+    background: #e60023;
+    color: #fff;
+}
+
+/* 出品ボタン：最下段 赤背景 白文字 */
+.sell-submit {
+    margin-top: 26px;
+}
+
+.sell-submit-btn {
+    width: 100%;
+    padding: 14px 0;
+    background: #e60023;
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* エラー */
+.sell-error {
+    color: #e60023;
+    font-size: 13px;
+    margin-top: 6px;
+}
+/* ===== 出品画面：画面仕様4ページ準拠 ===== */
+
+.sell-spec {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.sell-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.sell-label {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.sell-block {
+    margin-bottom: 28px;
+}
+
+/* 破線の画像枠 */
+.sell-image-dashed {
+    border: 2px dashed #ccc;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sell-file {
+    display: none;
+}
+
+.sell-image-btn {
+    border: 2px solid #ff5a5a;
+    color: #ff5a5a;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* セクション見出し＋横線 */
+.sell-section-title {
+    font-weight: bold;
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* カテゴリー（赤ピル） */
+.sell-category {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.sell-cat-input {
+    display: none;
+}
+
+.sell-cat-pill {
+    border: 2px solid #ff5a5a;
+    color: #ff5a5a;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.sell-cat-input:checked+.sell-cat-pill {
+    background: #ff5a5a;
+    color: #fff;
+}
+
+/* 入力系 */
+.sell-input,
+.sell-select,
+.sell-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.sell-textarea {
+    height: 120px;
+}
+
+/* 価格 */
+.sell-price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.yen {
+    font-weight: bold;
+}
+
+/* 出品ボタン */
+.sell-submit {
+    width: 100%;
+    margin-top: 30px;
+    padding: 14px;
+    background: #ff5a5a;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* ===== 出品画面：商品画像プレビュー修正 ===== */
+
+.image-upload-area {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    border: 2px dashed #ccc;
+    padding: 40px 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.image-select-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 2px solid #ff5b5b;
+    color: #ff5b5b;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.image-preview-area {
+    margin-top: 20px;
+}
+
+.image-preview-area img {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+/* ===============================
+   出品画面（画面仕様4ページ目）
+================================ */
+
+.sell-container {
+    width: 800px;
+    margin: 40px auto 80px;
+}
+
+.sell-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+/* 商品画像 */
+.sell-image-area {
+    height: 300px;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.sell-image-area input[type="file"] {
+    display: none;
+}
+
+.sell-image-button {
+    border: 2px solid #ff5b5b;
+    color: #ff5b5b;
+    padding: 10px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #fff;
+    z-index: 2;
+}
+
+.sell-image-area img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: none;
+    background: #fff;
+}
+
+/* セクション */
+.sell-section {
+    margin-top: 40px;
+}
+
+.sell-section-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sell-section-line {
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0 20px;
+}
+
+/* 入力 */
+.sell-group {
+    margin-bottom: 24px;
+}
+
+.sell-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.sell-input,
+.sell-textarea,
+.sell-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.sell-textarea {
+    height: 140px;
+}
+
+/* カテゴリー */
+.sell-category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.sell-category-item input {
+    display: none;
+}
+
+.sell-category-item label {
+    border: 2px solid #ff5b5b;
+    color: #ff5b5b;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.sell-category-item input:checked+label {
+    background: #ff5b5b;
+    color: #fff;
+}
+
+/* 出品ボタン */
+.sell-submit {
+    margin-top: 50px;
+}
+
+.sell-submit button {
+    width: 100%;
+    background: #ff5b5b;
+    color: #fff;
+    border: none;
+    padding: 16px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+/* 画像選択ボタン：通常は中央 */
+.sell-image-area {
+    position: relative;
+}
+
+.sell-image-button {
+    position: absolute;
+    z-index: 2;
+}
+
+/* 画像が表示された後の配置（右下に退避） */
+.sell-image-area img:not([style*="display: none"])~.sell-image-button {
+    top: auto;
+    left: auto;
+    bottom: 16px;
+    right: 16px;
+}
+/* 画像選択後の状態制御（出品画面専用） */
+.sell-image-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sell-image-area.has-image .sell-image-button {
+    top: auto;
+    left: auto;
+    bottom: 16px;
+    right: 16px;
+    transform: none;
+}
+/* 商品名と説明：区切り線は1本だけにする */
+.sell-section+.sell-section .sell-section-line {
+    display: none;
+}
+/* 出品画面：カテゴリー（赤丸・赤字 → 選択で赤反転） */
+.sell-category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.sell-category-item input {
+    display: none;
+}
+
+.sell-category-item span {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid #ff5555;
+    border-radius: 999px;
+    color: #ff5555;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* クリック時 */
+.sell-category-item input:checked+span {
+    background: #ff5555;
+    color: #fff;
+}
+/* カテゴリー下に余白 */
+.sell-category-list {
+    margin-bottom: 32px;
+}
+/* 商品の状態の直下のラインを消す */
+.sell-select+.sell-line,
+.sell-select+hr {
+    display: none;
+}
+/* 商品名と説明の下にライン */
+.sell-section:last-of-type {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+}
+/* バリデーションエラー（出品画面） */
+.error,
+.error-text {
+    color: #ff5555;
+    font-size: 13px;
+    margin-top: 4px;
+}
+/* 出品画面 バリデーション（最優先） */
+.sell-form .error {
+    color: #ff3333 !important;
+    font-size: 13px;
+    margin-top: 4px;
+}
+/* 出品画像プレビュー */
+#preview {
+    display: block;
+    margin: 0 auto 16px;
+    /* 下に余白を作る */
+}
+
+/* 画像選択ボタンを下に配置 */
+.sell-image-button {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+/* 出品画像エリアを縦並びにする（強制） */
+.sell-image-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* プレビュー画像 */
+.sell-image-area img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 16px;
+}
+
+/* 画像選択ボタン */
+.sell-image-area label {
+    position: static !important;
+}
+.sell-image-area {
+    position: relative;
+}
+
+#preview {
+    display: block;
+    margin: 0 auto;
+}
+
+.image-btn {
+    display: block;
+    margin: 16px auto 0;
+    position: static;
+}
+#preview {
+    display: none;
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: contain;
+    margin: 16px auto 0;
+}
+/* 画像エリア */
+.sell-image-area {
+    position: relative;
+    text-align: center;
+}
+
+/* 画像選択ボタン（初期：中央） */
+.sell-image-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #ff5f5f;
+    color: #ff5f5f;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 画像プレビュー */
+#preview {
+    display: none;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* ★画像選択後：ボタンを下にずらす */
+.sell-image-area.has-image .sell-image-button {
+    position: static;
+    transform: none;
+    margin-top: 12px;
+}
+/* 出品画像エリアを確実に縦並びにする（強制） */
+.sell-image-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* プレビュー画像は小さく */
+#preview {
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: contain;
+    margin-bottom: 16px;
+}
+
+/* 画像選択ボタンは必ず画像の下 */
+.sell-image-area label {
+    position: static !important;
+    margin-top: 0;
+}
+/* 出品画像：ラベルは必ず画像の下に配置（強制） */
+.sell-image-area>label {
+    position: static !important;
+    display: block !important;
+    margin: 12px auto 0 !important;
+    text-align: center;
+}
+
+/* プレビュー画像のサイズ固定 */
+.sell-image-area>#preview {
+    display: block;
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+/* ===== カテゴリー：赤丸・赤字 ===== */
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.category-item {
+    cursor: pointer;
+}
+
+.category-item input {
+    display: none;
+}
+
+.category-item span {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid #ff5a5a;
+    border-radius: 999px;
+    color: #ff5a5a;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+/* チェック時：赤反転 */
+.category-item input:checked+span {
+    background-color: #ff5a5a;
+    color: #fff;
+}
+/* 商品詳細 下のライン */
+.sell-subtitle {
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #ccc;
+}
+/* カテゴリーと商品の状態の間隔 */
+.category-list {
+    margin-bottom: 32px;
+}
+
+.sell-select {
+    margin-bottom: 32px;
+}
+.item-name a {
+    color: #000;
+    text-decoration: none;
+}
+main .item-index a {
+    color: #000 !important;
+    text-decoration: none;
+}
+main .item-index a,
+main .item-index a:visited,
+main .item-index a:hover,
+main .item-index a:active {
+    color: #000 !important;
+    text-decoration: none;
+}
+.item-index .item-name {
+    color: #000;
+}
