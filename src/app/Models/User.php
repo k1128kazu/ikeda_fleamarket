@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
+use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, TwoFactorAuthenticatable;
-
+    use Notifiable, TwoFactorAuthenticatable, MustVerifyEmailTrait;
     protected $fillable = [
         'name',
         'email',
@@ -48,11 +49,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Purchase::class);
     }
+
     public function isProfileIncomplete(): bool
     {
         return empty($this->name)
             || empty($this->postcode)
             || empty($this->address);
-        
     }
 }

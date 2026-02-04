@@ -3,24 +3,28 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\LoginRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function store(LoginRequest $request)
+    public function authenticated(Request $request, $user)
     {
-        Auth::guard('web')->attempt(
-            $request->only('email', 'password')
-        );
+        // ① メール未認証なら、必ず認証画面へ
+        if (! $user->hasVerifiedEmail()) {
+            return redirect()->route('verification.notice');
+        }
 
-        $request->session()->regenerate();
-
-        // 🔽 初回ログイン判定
-        if (auth()->user()->isProfileIncomplete()) {
+        // ② メール認証済み ＆ プロフィール未設定なら setup
+        if (
+            empty($user->name) ||
+            empty($user->postcode) ||
+            empty($user->address)
+        ) {
             return redirect()->route('profile.setup');
         }
 
-        return redirect()->route('items.index');
+        // ③ すべてOKならマイページ
+        return redirect()->route('profile.show');
     }
 }

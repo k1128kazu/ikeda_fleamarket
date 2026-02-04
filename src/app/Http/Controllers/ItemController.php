@@ -67,9 +67,10 @@ class ItemController extends Controller
         $item = Item::create([
             'user_id'     => Auth::id(),
             'name'        => $request->name,
+            'brand'       => $request->brand,   // ← 追加
             'description' => $request->description,
             'price'       => $request->price,
-            'status'      => $request->status,
+            'condition'   => $request->condition, // ★ 統一
             'image_path'  => $path,
             'is_sold'     => false,
         ]);

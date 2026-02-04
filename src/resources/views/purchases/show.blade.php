@@ -20,32 +20,36 @@
 
             <hr>
 
-            {{-- 支払い方法（表示・選択UIは残す） --}}
-            <div class="purchase-block">
-                <p class="purchase-label">支払い方法</p>
-                <select name="payment_method_display" id="payment_method" class="purchase-select">
-                    <option value="card" selected>クレジットカード</option>
-                    <option value="konbini">コンビニ払い</option>
-                </select>
-            </div>
+            {{-- ★ ここから form 開始（重要） --}}
+            <form method="POST" action="{{ route('purchase.store', $item) }}" novalidate>
+                @csrf
 
-            <hr>
-
-            {{-- 配送先 --}}
-            <div class="purchase-block">
-                <div class="purchase-address-head">
-                    <p class="purchase-label">配送先</p>
-                    <a href="{{ route('purchase.address.edit', $item) }}" class="purchase-change">
-                        変更する
-                    </a>
+                {{-- 支払い方法（★ form の中に入れる） --}}
+                <div class="purchase-block">
+                    <p class="purchase-label">支払い方法</p>
+                    <select name="payment_method" id="payment_method" class="purchase-select">
+                        <option value="card" selected>クレジットカード</option>
+                        <option value="konbini">コンビニ払い</option>
+                    </select>
                 </div>
 
-                <p>〒{{ session('purchase_address.postcode') ?? auth()->user()->postcode }}</p>
-                <p>
-                    {{ session('purchase_address.address') ?? auth()->user()->address }}
-                    {{ session('purchase_address.building') ?? auth()->user()->building }}
-                </p>
-            </div>
+                <hr>
+
+                {{-- 配送先 --}}
+                <div class="purchase-block">
+                    <div class="purchase-address-head">
+                        <p class="purchase-label">配送先</p>
+                        <a href="{{ route('purchase.address.edit', $item) }}" class="purchase-change">
+                            変更する
+                        </a>
+                    </div>
+
+                    <p>〒{{ session('purchase_address.postcode') ?? auth()->user()->postcode }}</p>
+                    <p>
+                        {{ session('purchase_address.address') ?? auth()->user()->address }}
+                        {{ session('purchase_address.building') ?? auth()->user()->building }}
+                    </p>
+                </div>
 
         </div>
 
@@ -63,24 +67,19 @@
                 </div>
             </div>
 
-            {{-- ★ Stripe 決済へ --}}
-            <form method="POST" action="{{ route('purchase.store', $item) }}" novalidate>
-                @csrf
-
-                {{-- Stripe 用（最終的に送る値） --}}
-                <input type="hidden" name="payment_method" id="payment_method_hidden" value="stripe">
-
-                <button type="submit" class="purchase-btn">
-                    購入する
-                </button>
-            </form>
+            <button type="submit" class="purchase-btn">
+                購入する
+            </button>
 
         </div>
+
+        </form>
+        {{-- ★ ここで form 終了 --}}
 
     </div>
 </div>
 
-{{-- 支払い方法 表示切替用（見た目だけ） --}}
+{{-- 支払い方法 表示切替（見た目用） --}}
 <script>
     const select = document.getElementById('payment_method');
     const summary = document.getElementById('summary-payment');

@@ -11,12 +11,11 @@ class Item extends Model
         'name',
         'price',
         'brand',
+        'condition',   // ★ 統一
         'description',
         'image_path',
-        'status',
-        'is_sold'
+        'is_sold',
     ];
-
     public function user()
     {
         return $this->belongsTo(User::class);

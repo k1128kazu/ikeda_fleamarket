@@ -43,13 +43,17 @@
     <div class="profile-items">
         @forelse ($items as $item)
         <div class="profile-item">
-            <img src="{{ asset('storage/' . $item->image_path) }}" class="profile-item-image">
-            <p class="profile-item-name">{{ $item->name }}</p>
-            <p class="profile-item-price">¥{{ number_format($item->price) }}</p>
+            <div class="profile-image-wrapper">
+                <img
+                    src="{{ asset('storage/' . $item->image_path) }}"
+                    class="profile-item-image">
 
-            @if ($item->is_sold)
-            <p class="profile-item-sold">SOLD</p>
-            @endif
+                @if ($item->is_sold)
+                <span class="sold-badge">SOLD</span>
+                @endif
+            </div>
+
+            <p class="profile-item-name">{{ $item->name }}</p>
         </div>
         @empty
         <p class="profile-empty">商品はありません</p>

@@ -5,82 +5,97 @@
 
     <h2 class="profile-title">プロフィール設定</h2>
 
-    <form method="POST" action="{{ route('profile.storeInitial') }}" enctype="multipart/form-data" novalidate>
+    <form method="POST"
+        action="{{ route('profile.storeInitial') }}"
+        enctype="multipart/form-data"
+        novalidate>
         @csrf
 
-        <!-- 画像エリア -->
+        {{-- プロフィール画像 --}}
         <div class="profile-image-area">
-            <img id="preview"
-                src="{{ auth()->user()->image
-        ? asset('storage/' . auth()->user()->image)
-        : asset('storage/user/default.png') }}"
+            <img
+                id="profile_preview"
+                src="{{ asset('storage/user/user_default.png') }}"
+                alt="プロフィール画像"
                 class="profile-circle">
 
             <label class="image-select-btn">
                 画像を選択する
-                <input type="file" name="image" hidden> </label>
+                <input
+                    type="file"
+                    name="profile_image"
+                    id="profile_image"
+                    accept="image/*"
+                    hidden>
+            </label>
 
-            @error('image')
-            <p class="login-error">{{ $message }}</p>
+            @error('profile_image')
+            <p class="form-error">{{ $message }}</p>
             @enderror
         </div>
 
+        {{-- ユーザー名 --}}
         <div class="profile-group">
             <label>ユーザー名</label>
-            <input type="text" name="name" value="{{ old('name', auth()->user()->name) }}">
+            <input type="text"
+                name="name"
+                value="{{ old('name', $user->name) }}">
+            @error('name')
+            <p class="form-error">{{ $message }}</p>
+            @enderror
         </div>
-        @error('name')
-        <p class="login-error">{{ $message }}</p>
-        @enderror
 
+        {{-- 郵便番号 --}}
         <div class="profile-group">
             <label>郵便番号</label>
-            <input type="text" name="postcode"
-                value="{{ old('postcode', auth()->user()->postcode) }}">
+            <input type="text"
+                name="postal_code"
+                value="{{ old('postal_code', $user->postal_code) }}">
+            @error('postal_code')
+            <p class="form-error">{{ $message }}</p>
+            @enderror
         </div>
-        @error('postcode')
-        <p class="login-error">{{ $message }}</p>
-        @enderror
 
+        {{-- 住所 --}}
         <div class="profile-group">
             <label>住所</label>
-            <input type="text" name="address"
-                value="{{ old('address', auth()->user()->address) }}">
+            <input type="text"
+                name="address01"
+                value="{{ old('address01', $user->address01) }}">
+            @error('address01')
+            <p class="form-error">{{ $message }}</p>
+            @enderror
         </div>
-        @error('address')
-        <p class="login-error">{{ $message }}</p>
-        @enderror
 
+        {{-- 建物名 --}}
         <div class="profile-group">
             <label>建物名</label>
-            <input type="text" name="building"
-                value="{{ old('building', auth()->user()->building) }}">
+            <input type="text"
+                name="address02"
+                value="{{ old('address02', $user->address02) }}">
         </div>
 
-        <button type="submit" class="profile-btn">更新する</button>
-    </form>
+        <button type="submit" class="profile-btn">
+            更新する
+        </button>
 
+    </form>
 </div>
+
+{{-- 画像プレビュー --}}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const fileInput = document.querySelector('input[type="file"][name="image"]');
-        const previewImg = document.getElementById('preview');
+        const input = document.getElementById('profile_image');
+        const preview = document.getElementById('profile_preview');
 
-        if (!fileInput || !previewImg) return;
+        if (!input || !preview) return;
 
-        fileInput.addEventListener('change', function() {
+        input.addEventListener('change', function() {
             const file = this.files[0];
             if (!file) return;
 
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                previewImg.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
+            preview.src = URL.createObjectURL(file);
         });
     });
 </script>
-
-
-
 @endsection

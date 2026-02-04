@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Stripe;
 use Stripe\Checkout\Session as StripeSession;
+use App\Http\Requests\UpdateShippingAddressRequest;
 
 class PurchaseController extends Controller
 {
@@ -31,22 +32,18 @@ class PurchaseController extends Controller
     /**
      * 住所変更（セッション保存）
      */
-    public function updateAddress(Request $request, Item $item)
+    public function updateAddress(UpdateShippingAddressRequest $request)
     {
-        $request->validate([
-            'postcode' => 'required',
-            'address'  => 'required',
-        ]);
+        // ★ validate() は書かない
 
+        // 例：セッションに保存（あなたの実装に合わせて）
         session([
-            'purchase_address' => [
-                'postcode' => $request->postcode,
-                'address'  => $request->address,
-                'building' => $request->building,
-            ]
+            'shipping.postcode' => $request->postcode,
+            'shipping.address'  => $request->address,
+            'shipping.building' => $request->building,
         ]);
 
-        return redirect()->route('purchase.show', $item);
+        return redirect()->route('purchase.confirm');
     }
 
     /**
@@ -54,12 +51,29 @@ class PurchaseController extends Controller
      */
     public function store(Request $request, Item $item)
     {
-        // Stripeキー設定
-        Stripe::setApiKey(config('services.stripe.secret'));
+        \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
 
-        // Stripe Checkout セッション作成
-        $session = StripeSession::create([
-            'payment_method_types' => ['card', 'konbini'],
+        // ★ 支払い方法をここで確定（これが全て）
+        $paymentMethods = ($request->payment_method === 'konbini')
+            ? ['konbini']
+            : ['card'];
+        if ($request->payment_method === 'konbini') {
+            $item->is_sold = true;
+            $item->save();
+
+            // ② 購入レコードを作成（← これが無かった）
+            \App\Models\Purchase::create([
+                'user_id' => auth()->id(),   // 購入者
+                'item_id' => $item->id,      // 商品
+                'postcode' => auth()->user()->postcode,
+                'address'  => auth()->user()->address,
+                'building' => auth()->user()->building,
+                'payment_method' => 'konbini',
+            ]);
+        }
+
+        $session = \Stripe\Checkout\Session::create([
+            'payment_method_types' => $paymentMethods,
             'line_items' => [[
                 'price_data' => [
                     'currency' => 'jpy',
@@ -71,13 +85,10 @@ class PurchaseController extends Controller
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-
-            // ★ 成功後に session_id を持って戻す
-            'success_url' => route('purchase.complete') . '?session_id={CHECKOUT_SESSION_ID}',
+            'success_url' => route('purchase.complete', $item),
             'cancel_url'  => route('purchase.show', $item),
         ]);
 
-        // Stripe画面へリダイレクト
         return redirect($session->url);
     }
 

@@ -70,19 +70,22 @@
             <p class="error">{{ $message }}</p>
             @enderror
 
-            {{-- 商品の状態 --}}
-            <label class="sell-label">商品の状態</label>
-            <select name="status" class="sell-select">
-                <option value="">選択してください</option>
-                <option value="良好" {{ old('status') === '良好' ? 'selected' : '' }}>良好</option>
-                <option value="目立った傷や汚れなし" {{ old('status') === '目立った傷や汚れなし' ? 'selected' : '' }}>目立った傷や汚れなし</option>
-                <option value="やや傷や汚れあり" {{ old('status') === 'やや傷や汚れあり' ? 'selected' : '' }}>やや傷や汚れあり</option>
-            </select>
-
-            @error('status')
-            <p class="error">{{ $message }}</p>
-            @enderror
         </div>
+        <label class="sell-label">商品の状態</label>
+        <select name="condition" class="sell-select">
+            <option value="">選択してください</option>
+            <option value="良好" {{ old('condition') === '良好' ? 'selected' : '' }}>良好</option>
+            <option value="目立った傷や汚れなし" {{ old('condition') === '目立った傷や汚れなし' ? 'selected' : '' }}>
+                目立った傷や汚れなし
+            </option>
+            <option value="やや傷や汚れあり" {{ old('condition') === 'やや傷や汚れあり' ? 'selected' : '' }}>
+                やや傷や汚れあり
+            </option>
+        </select>
+
+        @error('condition')
+        <p class="error">{{ $message }}</p>
+        @enderror
 
         {{-- 商品名と説明 --}}
         <div class="sell-section">
@@ -105,6 +108,18 @@
                 class="sell-textarea">{{ old('description') }}</textarea>
 
             @error('description')
+            <p class="error">{{ $message }}</p>
+            @enderror
+        </div>
+        {{-- ブランド名 --}}
+        <div class="sell-group">
+            <label class="sell-label">ブランド名</label>
+            <input
+                type="text"
+                name="brand"
+                value="{{ old('brand') }}"
+                class="sell-input">
+            @error('brand')
             <p class="error">{{ $message }}</p>
             @enderror
         </div>

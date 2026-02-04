@@ -3003,3 +3003,65 @@ main .item-index a:active {
 .item-index .item-name {
     color: #000;
 }
+/* マイページ用 画像ラッパー */
+.profile-image-wrapper {
+    position: relative;
+}
+/* ===== タブレット対応 ===== */
+@media screen and (max-width: 850px) {
+
+    /* ヘッダー */
+    .header-inner {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .header-search {
+        width: 100%;
+        order: 3;
+    }
+
+    .header-search input {
+        width: 100%;
+    }
+
+    /* 商品一覧・マイページ */
+    .product-grid,
+    .profile-items {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    /* 商品詳細・購入 */
+    .detail-container,
+    .purchase-main {
+        flex-direction: column;
+    }
+
+    .detail-left,
+    .detail-right,
+    .purchase-left,
+    .purchase-right {
+        width: 100%;
+    }
+
+    /* フォーム */
+    input,
+    textarea,
+    select {
+        font-size: 14px;
+    }
+
+    .profile-container,
+    .sell-container {
+        padding: 0 16px;
+    }
+
+    /* SOLD */
+    .sold-badge {
+        top: 6px;
+        left: 6px;
+        font-size: 11px;
+        padding: 3px 6px;
+    }
+}

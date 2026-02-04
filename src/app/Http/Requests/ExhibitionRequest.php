@@ -15,10 +15,11 @@ class ExhibitionRequest extends FormRequest
     {
         return [
             'name'         => ['required'],
+            'brand'        => ['nullable', 'string', 'max:255'], // ← ★追加
             'description'  => ['required', 'max:255'],
             'price'        => ['required', 'integer', 'min:0'],
             'image'        => ['required', 'image', 'mimes:jpeg,png'],
-            'status'       => ['required'],
+            'condition'    => ['required', 'string'], // ★ 統一
             'categories'   => ['required', 'array'],
             'categories.*' => ['exists:categories,id'],
         ];
