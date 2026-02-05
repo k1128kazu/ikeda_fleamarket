@@ -23,6 +23,8 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
+Route::post('/login', [LoginController::class, 'store']);
+
 // Route::post('/login', [LoginController::class, 'store']);
 
 Route::post('/logout', function () {
@@ -88,6 +90,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('purchase.address.edit');
     Route::put('/purchase/{item}/address', [PurchaseController::class, 'updateAddress'])
         ->name('purchase.address.update');
-    
+
 
 });

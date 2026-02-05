@@ -9,7 +9,6 @@ class ItemSeeder extends Seeder
 {
     public function run()
     {
-        // items テーブル
         DB::table('items')->insert([
             [
                 'user_id' => 1,
@@ -19,8 +18,9 @@ class ItemSeeder extends Seeder
                 'description' => '高級感のある腕時計です。',
                 'image_path' => 'item/Armani+Mens+Clock.jpg',
                 'condition' => '良好',
-                'color' => 'グレー',
-                'status' => '販売中',
+                'is_sold' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'user_id' => 2,
@@ -30,8 +30,9 @@ class ItemSeeder extends Seeder
                 'description' => '大容量のハードディスクです。',
                 'image_path' => 'item/HDD+Hard+Disk.jpg',
                 'condition' => '目立った傷や汚れなし',
-                'color' => 'ブラック',
-                'status' => '販売中',
+                'is_sold' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'user_id' => 3,
@@ -41,8 +42,9 @@ class ItemSeeder extends Seeder
                 'description' => '新鮮な玉ねぎの三束セットです。',
                 'image_path' => 'item/iLoveIMG+d.jpg',
                 'condition' => '新品',
-                'color' => 'なし',
-                'status' => '販売中',
+                'is_sold' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'user_id' => 1,
@@ -52,8 +54,9 @@ class ItemSeeder extends Seeder
                 'description' => 'ビジネス用の革靴です。',
                 'image_path' => 'item/Leather+Shoes+Product+Photo.jpg',
                 'condition' => '良好',
-                'color' => 'ブラウン',
-                'status' => '販売中',
+                'is_sold' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'user_id' => 2,
@@ -63,8 +66,9 @@ class ItemSeeder extends Seeder
                 'description' => 'リビングでも使えるノートPC。',
                 'image_path' => 'item/Living+Room+Laptop.jpg',
                 'condition' => '良好',
-                'color' => 'シルバー',
-                'status' => '販売中',
+                'is_sold' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'user_id' => 3,
@@ -74,8 +78,9 @@ class ItemSeeder extends Seeder
                 'description' => '音質の良いマイクです。',
                 'image_path' => 'item/Music+Mic+4632231.jpg',
                 'condition' => '良好',
-                'color' => 'ブラック',
-                'status' => '販売中',
+                'is_sold' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'user_id' => 1,
@@ -85,8 +90,9 @@ class ItemSeeder extends Seeder
                 'description' => 'コンパクトな財布です。',
                 'image_path' => 'item/Purse+fashion+pocket.jpg',
                 'condition' => '良好',
-                'color' => 'ネイビー',
-                'status' => '販売中',
+                'is_sold' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'user_id' => 2,
@@ -96,8 +102,9 @@ class ItemSeeder extends Seeder
                 'description' => 'おしゃれなタンブラーです。',
                 'image_path' => 'item/Tumbler+souvenir.jpg',
                 'condition' => '良好',
-                'color' => 'ホワイト',
-                'status' => '販売中',
+                'is_sold' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'user_id' => 3,
@@ -107,8 +114,9 @@ class ItemSeeder extends Seeder
                 'description' => '業務用コーヒーグラインダー。',
                 'image_path' => 'item/Waitress+with+Coffee+Grinder.jpg',
                 'condition' => '良好',
-                'color' => 'ブラック',
-                'status' => '販売中',
+                'is_sold' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'user_id' => 1,
@@ -118,15 +126,16 @@ class ItemSeeder extends Seeder
                 'description' => '便利なメイクアップセット。',
                 'image_path' => 'item/makeup_set.jpg',
                 'condition' => '目立った傷や汚れなし',
-                'color' => 'ピンク',
-                'status' => '販売中',
+                'is_sold' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ]);
 
-        // category_item（中間テーブル）
+        // 中間テーブル
         $categoryIds = DB::table('categories')->pluck('id')->toArray();
 
-        foreach (range(1, 10) as $itemId) {
+        foreach (DB::table('items')->pluck('id') as $itemId) {
             DB::table('category_item')->insert([
                 'item_id' => $itemId,
                 'category_id' => $categoryIds[array_rand($categoryIds)],

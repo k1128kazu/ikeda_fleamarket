@@ -7,10 +7,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, TwoFactorAuthenticatable, MustVerifyEmailTrait;
+    use HasFactory, Notifiable, TwoFactorAuthenticatable, MustVerifyEmailTrait;
     protected $fillable = [
         'name',
         'email',
