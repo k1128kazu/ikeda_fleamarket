@@ -1,3 +1,4 @@
 # Docker MySQL data
 docker/mysql/data/
 src/.env.testing
+src/.env.testing
