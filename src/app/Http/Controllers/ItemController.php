@@ -18,23 +18,31 @@ class ItemController extends Controller
     {
         // タブ判定
         $tab = $request->query('tab', 'recommend');
+        $keyword = $request->query('keyword');
 
         if ($tab === 'mylist' && Auth::check()) {
             // マイリスト（いいねした商品）
-            $items = Item::with(['categories', 'likes'])
-                ->whereHas('likes', function ($query) {
-                    $query->where('user_id', Auth::id());
-                })
-                ->orderByDesc('created_at')
-                ->get();
+            $query = Item::with(['categories', 'likes'])
+                ->whereHas('likes', function ($q) {
+                    $q->where('user_id', Auth::id());
+                });
         } else {
             // おすすめ（全商品：SOLD含む）
-            $items = Item::with('categories')
-                ->orderByDesc('created_at')
-                ->get();
+            $query = Item::with('categories');
         }
 
-        return view('items.index', compact('items', 'tab'));
+        // ★ キーワード検索（タブ共通）
+        if (!empty($keyword)) {
+            $query->where(function ($q) use ($keyword) {
+                $q->where('name', 'like', "%{$keyword}%")
+                    ->orWhere('description', 'like', "%{$keyword}%")
+                    ->orWhere('brand', 'like', "%{$keyword}%");
+            });
+        }
+
+        $items = $query->orderByDesc('created_at')->get();
+
+        return view('items.index', compact('items', 'tab', 'keyword'));
     }
     /**
      * 商品詳細

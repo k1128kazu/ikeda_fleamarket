@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PurchaseRequest;
+use App\Http\Requests\UpdateShippingAddressRequest;
 use App\Models\Item;
 use App\Models\Purchase;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\PurchaseRequest;
-use App\Http\Requests\UpdateShippingAddressRequest;
+use Illuminate\Support\Facades\DB;
 use Stripe\Stripe;
 use Stripe\Checkout\Session as StripeSession;
 
 class PurchaseController extends Controller
 {
     /**
-     * 購入画面表示
+     * 購入画面
      */
     public function show(Item $item)
     {
@@ -30,9 +31,9 @@ class PurchaseController extends Controller
     }
 
     /**
-     * 住所変更（セッション保存）
+     * 住所変更（一時保存）
      */
-    public function updateAddress(UpdateShippingAddressRequest $request)
+    public function updateAddress(UpdateShippingAddressRequest $request, Item $item)
     {
         session([
             'shipping.postcode' => $request->postcode,
@@ -40,73 +41,26 @@ class PurchaseController extends Controller
             'shipping.building' => $request->building,
         ]);
 
-        return redirect()->route('purchase.show', $request->item_id);
+        return redirect()->route('purchase.show', $item);
     }
 
     /**
-     * 購入確定
+     * 購入処理
+     * ・クレジット／コンビニ共通で Stripe に遷移
+     * ・コンビニ払いのみ SOLD を先に付ける
      */
     public function store(PurchaseRequest $request, Item $item)
     {
-        /**
-         * =========================================
-         * 【① テスト環境用分岐】
-         * ここは php artisan test のときだけ通る
-         * 本番環境では一切実行されない
-         * =========================================
-         */
-        if (app()->environment('testing')) {
-
-            // 購入レコード作成
-            Purchase::create([
-                'user_id' => auth()->id(),
-                'item_id' => $item->id,
-                'postcode' => auth()->user()->postcode,
-                'address'  => auth()->user()->address,
-                'building' => auth()->user()->building,
-                'payment_method' => $request->payment_method,
-            ]);
-
-            // ★ テスト環境でも SOLD にする（次のテストでも使う）
-            $item->update([
-                'is_sold' => true,
-            ]);
-
-            return redirect()->route('purchase.show', $item);
-        }
-
-        /**
-         * =========================================
-         * 【② 本番環境（Stripeあり）】
-         * ★あなたが直した「コンビニSOLDバグ」はここ
-         * ★この中身は一切変更していない
-         * =========================================
-         */
         Stripe::setApiKey(config('services.stripe.secret'));
 
-        $paymentMethods = ($request->payment_method === 'konbini')
-            ? ['konbini']
-            : ['card'];
-
-        // ★ コンビニ決済は即時SOLD（あなたの修正）
-        if ($request->payment_method === 'konbini') {
-
-            $item->update([
-                'is_sold' => true,
-            ]);
-
-            Purchase::create([
-                'user_id' => auth()->id(),
-                'item_id' => $item->id,
-                'postcode' => auth()->user()->postcode,
-                'address'  => auth()->user()->address,
-                'building' => auth()->user()->building,
-                'payment_method' => 'konbini',
-            ]);
-        }
-
         $session = StripeSession::create([
-            'payment_method_types' => $paymentMethods,
+            'payment_method_types' => ['card', 'konbini'],
+            'payment_method_options' => [
+                'konbini' => [
+                    'expires_after_days' => 3,
+                ],
+            ],
+            'customer_email' => Auth::user()->email,
             'line_items' => [[
                 'price_data' => [
                     'currency' => 'jpy',
@@ -118,18 +72,68 @@ class PurchaseController extends Controller
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => route('purchase.complete', $item),
+            'metadata' => [
+                'item_id' => (string) $item->id,
+                'buyer_id' => (string) Auth::id(),
+                'selected_payment_method' => (string) $request->payment_method,
+            ],
+            'success_url' => route('purchase.complete') . '?session_id={CHECKOUT_SESSION_ID}',
             'cancel_url'  => route('purchase.show', $item),
         ]);
 
+        // 購入履歴はここで必ず作る（マーキング）
+        Purchase::unguarded(function () use ($item, $session, $request) {
+            Purchase::updateOrCreate(
+                ['item_id' => $item->id],
+                [
+                    'user_id' => Auth::id(),
+                    'postcode' => Auth::user()->postcode,
+                    'address'  => Auth::user()->address,
+                    'building' => Auth::user()->building,
+                    'payment_method' => $request->payment_method,
+                    'stripe_session_id' => $session->id,
+                ]
+            );
+        });
+
+        // コンビニ払いは申込時点で SOLD
+        if ($request->payment_method === 'konbini') {
+            $item->update(['is_sold' => true]);
+        }
+
+        // ★ クレジット／コンビニ共通で Stripe へ
         return redirect($session->url);
     }
 
     /**
-     * 購入完了画面（カード決済用）
+     * 購入完了
+     * ・クレジットカード決済後に SOLD を付ける
      */
     public function complete()
     {
+        Stripe::setApiKey(config('services.stripe.secret'));
+
+        $sessionId = request('session_id');
+        if (!$sessionId) {
+            abort(400, 'session_id がありません');
+        }
+
+        $session = StripeSession::retrieve($sessionId);
+
+        $itemId = data_get($session, 'metadata.item_id');
+        if (!$itemId) {
+            abort(400, 'item_id が取得できません');
+        }
+
+        $item = Item::findOrFail($itemId);
+
+        // クレジットカード決済後に SOLD
+        if (!$item->is_sold) {
+            $item->update(['is_sold' => true]);
+        }
+
+        session()->forget('shipping');
+
         return view('purchases.complete');
     }
 }

@@ -5,7 +5,6 @@
 <div class="profile-edit-page">
 
     <h2 class="profile-edit-title">プロフィール設定</h2>
-
     <form method="POST"
         action="{{ route('profile.update') }}"
         enctype="multipart/form-data"
@@ -20,24 +19,24 @@
                 <img
                     id="profile_preview"
                     src="{{ $user->image
-                        ? asset('storage/' . $user->image)
-                        : asset('storage/material/user_default.png') }}"
+                    ? asset('storage/' . $user->image)
+                    : asset('storage/material/user_default.png') }}"
                     alt="ユーザー画像"
                     class="profile-edit-avatar-img">
             </div>
 
-            <label class="profile-edit-image-btn">
+            <label for="profile_image" class="profile-edit-image-btn">
                 画像を選択する
-                <input
-                    type="file"
-                    name="profile_image"
-                    id="profile_image"
-                    class="profile-edit-file"
-                    accept="image/*">
             </label>
+            <input
+                type="file"
+                name="image" {{-- ★ Request 用 --}}
+                id="profile_image" {{-- ★ JS 用 --}}
+                class="profile-edit-file"
+                accept="image/*">
         </div>
 
-        @error('profile_image')
+        @error('image')
         <p class="form-error">{{ $message }}</p>
         @enderror
 
@@ -57,10 +56,10 @@
         <div class="profile-edit-group">
             <label class="profile-edit-label">郵便番号</label>
             <input type="text"
-                name="postal_code"
-                value="{{ old('postal_code', $user->postal_code) }}"
+                name="postcode"
+                value="{{ old('postcode', $user->postcode) }}"
                 class="profile-edit-input">
-            @error('postal_code')
+            @error('postcode')
             <p class="form-error">{{ $message }}</p>
             @enderror
         </div>
@@ -69,10 +68,10 @@
         <div class="profile-edit-group">
             <label class="profile-edit-label">住所</label>
             <input type="text"
-                name="address01"
-                value="{{ old('address01', $user->address01) }}"
+                name="address"
+                value="{{ old('address', $user->address) }}"
                 class="profile-edit-input">
-            @error('address01')
+            @error('address')
             <p class="form-error">{{ $message }}</p>
             @enderror
         </div>
@@ -81,8 +80,8 @@
         <div class="profile-edit-group">
             <label class="profile-edit-label">建物名</label>
             <input type="text"
-                name="address02"
-                value="{{ old('address02', $user->address02) }}"
+                name="building"
+                value="{{ old('building', $user->building) }}"
                 class="profile-edit-input">
         </div>
 
@@ -90,8 +89,8 @@
         <button type="submit" class="profile-edit-submit">
             更新する
         </button>
-
     </form>
+
 </div>
 
 {{-- 画像プレビュー --}}

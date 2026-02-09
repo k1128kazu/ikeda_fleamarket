@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
+use App\Http\Requests\ProfileRequest;
 
 class ProfileController extends Controller
 {
@@ -51,15 +52,18 @@ class ProfileController extends Controller
     /**
      * プロフィール更新
      */
-    public function update(Request $request)
+    public function update(ProfileRequest $request)
     {
+
         $user = Auth::user();
 
+        // 画像は「選ばれた時だけ」更新
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('user', 'public');
-            $user->image = $path;
+            $user->image = $path;   // ★ users.image に統一
         }
 
+        // 通常項目
         $user->name     = $request->name;
         $user->postcode = $request->postcode;
         $user->address  = $request->address;
