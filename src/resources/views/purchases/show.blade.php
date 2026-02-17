@@ -50,12 +50,17 @@ $paymentMethod = old('payment_method', 'card');
                             変更する
                         </a>
                     </div>
+                    @php
+                    $ship = session('shipping');
+                    @endphp
 
-                    <p>〒{{ auth()->user()->postcode }}</p>
+                    <p>〒{{ $ship['postcode'] ?? auth()->user()->postcode }}</p>
                     <p>
-                        {{ auth()->user()->address }}
-                        {{ auth()->user()->building }}
+                        {{ $ship['address'] ?? auth()->user()->address }}
+                        {{ $ship['building'] ?? auth()->user()->building }}
                     </p>
+
+
                 </div>
 
         </div>

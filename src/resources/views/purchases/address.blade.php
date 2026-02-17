@@ -2,32 +2,43 @@
 
 @section('content')
 
-<div class="address-page">
-    <h2>配送先の変更</h2>
+<div class="address-edit-wrapper">
+    <h1 class="address-edit-title">配送先の変更</h1>
 
     <form method="POST" action="{{ route('purchase.address.update', $item) }}" novalidate>
         @csrf
         @method('PUT')
 
-        <div>
+        <div class="form-group">
             <label>郵便番号</label>
-            <input type="text" name="postcode"
+            <input
+                type="text"
+                name="postcode"
+                class="address-input"
                 value="{{ old('postcode', auth()->user()->postcode) }}">
         </div>
 
-        <div>
+        <div class="form-group">
             <label>住所</label>
-            <input type="text" name="address"
+            <input
+                type="text"
+                name="address"
+                class="address-input"
                 value="{{ old('address', auth()->user()->address) }}">
         </div>
 
-        <div>
+        <div class="form-group">
             <label>建物名</label>
-            <input type="text" name="building"
+            <input
+                type="text"
+                name="building"
+                class="address-input"
                 value="{{ old('building', auth()->user()->building) }}">
         </div>
 
-        <button type="submit">更新する</button>
+        <button type="submit" class="address-update-btn">
+            更新する
+        </button>
     </form>
 </div>
 

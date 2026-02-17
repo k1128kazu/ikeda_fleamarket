@@ -15,11 +15,18 @@ class ExhibitionRequest extends FormRequest
     {
         return [
             'name'         => ['required'],
-            'brand'        => ['nullable', 'string', 'max:255'], // ← ★追加
+            'brand'        => ['nullable', 'string', 'max:255'],
             'description'  => ['required', 'max:255'],
             'price'        => ['required', 'integer', 'min:0'],
             'image'        => ['required', 'image', 'mimes:jpeg,png'],
-            'condition'    => ['required', 'string'], // ★ 統一
+
+            // ★ 状態は4種に制限（確定）
+            'condition'    => [
+                'required',
+                'string',
+                'in:良好,目立った傷や汚れなし,やや傷や汚れあり,状態が悪い',
+            ],
+
             'categories'   => ['required', 'array'],
             'categories.*' => ['exists:categories,id'],
         ];
@@ -37,7 +44,11 @@ class ExhibitionRequest extends FormRequest
             'image.required'        => '商品画像を選択してください',
             'image.image'           => '画像ファイルを選択してください',
             'image.mimes'           => '画像はjpegまたはpng形式で選択してください',
-            'status.required'       => '商品の状態を選択してください',
+
+            // ★ 正しいフィールドのみ残す
+            'condition.required'    => '商品の状態を選択してください',
+            'condition.in'          => '商品の状態を正しく選択してください',
+
             'categories.required'   => 'カテゴリを選択してください',
             'categories.*.exists'   => '正しいカテゴリを選択してください',
         ];

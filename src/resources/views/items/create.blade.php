@@ -65,11 +65,6 @@
             <p class="error">{{ $message }}</p>
             @enderror
 
-
-            @error('categories')
-            <p class="error">{{ $message }}</p>
-            @enderror
-
         </div>
         <label class="sell-label">商品の状態</label>
         <select name="condition" class="sell-select">
@@ -81,6 +76,7 @@
             <option value="やや傷や汚れあり" {{ old('condition') === 'やや傷や汚れあり' ? 'selected' : '' }}>
                 やや傷や汚れあり
             </option>
+            <option value="状態が悪い" {{ old('condition') === '状態が悪い' ? 'selected' : '' }}>状態が悪い</option>
         </select>
 
         @error('condition')

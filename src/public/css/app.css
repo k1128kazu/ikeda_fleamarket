@@ -3065,3 +3065,58 @@ main .item-index a:active {
         padding: 3px 6px;
     }
 }
+/* 配送先住所変更画面 */
+.address-edit-wrapper {
+    max-width: 720px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.address-edit-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    height: 44px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.address-update-btn {
+    width: 100%;
+    height: 50px;
+    background-color: #ff5a5a;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.address-update-btn:hover {
+    opacity: 0.9;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 6px;
+}
