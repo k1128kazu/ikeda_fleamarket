@@ -18,7 +18,7 @@ class ExhibitionRequest extends FormRequest
             'brand'        => ['nullable', 'string', 'max:255'],
             'description'  => ['required', 'max:255'],
             'price'        => ['required', 'integer', 'min:0'],
-            'image'        => ['required', 'image', 'mimes:jpeg,png'],
+            'image'        => ['required', 'image', 'mimes:jpeg,png', 'max:1024',],
 
             // ★ 状態は4種に制限（確定）
             'condition'    => [
@@ -44,6 +44,7 @@ class ExhibitionRequest extends FormRequest
             'image.required'        => '商品画像を選択してください',
             'image.image'           => '画像ファイルを選択してください',
             'image.mimes'           => '画像はjpegまたはpng形式で選択してください',
+            'image.max'             => '画像サイズが大きすぎます（1MB以内にしてください）',
 
             // ★ 正しいフィールドのみ残す
             'condition.required'    => '商品の状態を選択してください',

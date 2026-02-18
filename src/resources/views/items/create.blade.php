@@ -97,17 +97,9 @@
             @error('name')
             <p class="error">{{ $message }}</p>
             @enderror
-
-            <label class="sell-label">商品の説明</label>
-            <textarea
-                name="description"
-                class="sell-textarea">{{ old('description') }}</textarea>
-
-            @error('description')
-            <p class="error">{{ $message }}</p>
-            @enderror
         </div>
-        {{-- ブランド名 --}}
+
+        {{-- ブランド名（← ここに移動） --}}
         <div class="sell-group">
             <label class="sell-label">ブランド名</label>
             <input
@@ -116,6 +108,18 @@
                 value="{{ old('brand') }}"
                 class="sell-input">
             @error('brand')
+            <p class="error">{{ $message }}</p>
+            @enderror
+        </div>
+
+        {{-- 商品の説明（← ブランドの下） --}}
+        <div class="sell-section">
+            <label class="sell-label">商品の説明</label>
+            <textarea
+                name="description"
+                class="sell-textarea">{{ old('description') }}</textarea>
+
+            @error('description')
             <p class="error">{{ $message }}</p>
             @enderror
         </div>
@@ -155,6 +159,18 @@
             const file = this.files[0];
             if (!file) return;
 
+            const MAX_SIZE = 1024 * 1024; // 1MB
+
+            // ★ サイズチェック（ここが本命）
+            if (file.size > MAX_SIZE) {
+                alert('画像サイズが大きすぎます（1MB以内にしてください）');
+                input.value = ''; // 選択リセット
+                preview.src = '';
+                preview.style.display = 'none';
+                return;
+            }
+
+            // ★ プレビュー表示（サイズOK時のみ）
             preview.src = URL.createObjectURL(file);
             preview.style.display = 'block';
         });

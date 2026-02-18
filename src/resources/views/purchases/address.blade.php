@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="address-edit-wrapper">
-    <h1 class="address-edit-title">配送先の変更</h1>
+    <h1 class="address-edit-title">住所の変更</h1>
 
     <form method="POST" action="{{ route('purchase.address.update', $item) }}" novalidate>
         @csrf

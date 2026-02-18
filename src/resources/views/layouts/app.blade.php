@@ -13,7 +13,7 @@
     <header class="header">
         <div class="header-inner">
 
-            {{-- ロゴ（左） --}}
+            {{-- ロゴ（常に表示） --}}
             <div class="header-left">
                 <a href="{{ route('items.index') }}">
                     <img src="{{ asset('storage/material/COACHTECHヘッダーロゴ.png') }}"
@@ -22,7 +22,10 @@
                 </a>
             </div>
 
-            {{-- 🔍 検索（中央・CSS追加なし） --}}
+            {{-- 🔽 ログイン・会員登録画面では非表示 --}}
+            @if (!request()->routeIs('login', 'register'))
+
+            {{-- 🔍 検索（中央） --}}
             <div class="header-search">
                 <form action="{{ route('items.index') }}" method="GET">
                     <input
@@ -55,6 +58,8 @@
                 @endauth
 
             </div>
+            @endif
+
         </div>
     </header>
 

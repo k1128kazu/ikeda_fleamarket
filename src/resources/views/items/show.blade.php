@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@php use Illuminate\Support\Str; @endphp
 
 @section('content')
 
@@ -28,7 +29,7 @@
         <!-- いいね・コメント -->
         <div class="detail-icons">
 
-            <!-- いいね -->
+            <!-- いいね（✅復旧：押せる版） -->
             <div class="icon-box">
                 @auth
                 @if ($item->likes->where('user_id', auth()->id())->count() > 0)
@@ -75,8 +76,7 @@
             購入手続きへ
         </a>
         @else
-        <button class="buy-btn" disabled
-            style="background:#ccc; cursor:not-allowed;">
+        <button class="buy-btn" disabled style="background:#ccc; cursor:not-allowed;">
             購入済み
         </button>
         @endif
@@ -95,14 +95,16 @@
         <!-- 商品の情報 -->
         <p class="section-title">商品の情報</p>
 
-        <!-- 商品の状態（← ここが修正点） -->
-        <p>商品の状態：{{ $item->condition }}</p>
-
         <!-- カテゴリー -->
-        <p style="margin-top:10px;">カテゴリー：</p>
-        @foreach ($item->categories as $category)
-        <span class="category-tag">{{ $category->name }}</span>
-        @endforeach
+        <p>
+            カテゴリー：
+            @foreach ($item->categories as $category)
+            <span class="category-tag">{{ $category->name }}</span>
+            @endforeach
+        </p>
+
+        <!-- 商品の状態 -->
+        <p>商品の状態：{{ $item->condition }}</p>
 
         <!-- コメント一覧 -->
         <p class="section-title">
@@ -111,16 +113,29 @@
 
         @foreach ($item->comments as $comment)
         <div class="comment-box">
+
             <div class="comment-user">
-                {{ $comment->user->name }}
+                <!-- ✅ 確定：コメントしたユーザーの users.image を表示 -->
+                <img
+                    src="{{ $comment->user->image !== null
+                        ? asset('storage/' . $comment->user->image)
+                        : asset('storage/user/default.png') }}"
+                    alt="ユーザー画像"
+                    class="comment-user-image">
+
+                <span class="comment-user-name">
+                    {{ $comment->user->name }}
+                </span>
             </div>
-            <div>
+
+            <div class="comment-content">
                 {{ $comment->content }}
             </div>
+
         </div>
         @endforeach
 
-        <!-- コメント入力 -->
+        <!-- コメント入力（ログイン後：投稿／ログイン前：ログインへ） -->
         @auth
         <p class="section-title">商品へのコメント</p>
         <form method="POST"
@@ -141,6 +156,17 @@
             </button>
         </form>
         @endauth
+
+        @guest
+        <p class="section-title">商品へのコメント</p>
+        <form method="GET" action="{{ route('login') }}">
+            <textarea class="comment-input" disabled
+                placeholder="コメントを投稿するにはログインが必要です"></textarea>
+            <button type="submit" class="comment-btn">
+                コメントを送信する
+            </button>
+        </form>
+        @endguest
 
     </div>
 </div>

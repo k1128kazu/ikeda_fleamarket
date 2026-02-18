@@ -32,7 +32,7 @@ $paymentMethod = old('payment_method', 'card');
 
                     <select name="payment_method" id="payment_method" class="purchase-select">
                         <option value="card" {{ $paymentMethod === 'card' ? 'selected' : '' }}>
-                            クレジットカード
+                            カード支払い
                         </option>
                         <option value="konbini" {{ $paymentMethod === 'konbini' ? 'selected' : '' }}>
                             コンビニ払い
@@ -77,7 +77,7 @@ $paymentMethod = old('payment_method', 'card');
                 <div class="summary-row">
                     <span>支払い方法</span>
                     <span id="summary-payment">
-                        {{ $paymentMethod === 'konbini' ? 'コンビニ払い' : 'クレジットカード' }}
+                        {{ $paymentMethod === 'konbini' ? 'コンビニ払い' : 'カード支払い' }}
                     </span>
                 </div>
             </div>
@@ -102,7 +102,7 @@ $paymentMethod = old('payment_method', 'card');
             summary.textContent =
                 this.value === 'konbini' ?
                 'コンビニ払い' :
-                'クレジットカード';
+                'カード支払い';
         });
     }
 </script>

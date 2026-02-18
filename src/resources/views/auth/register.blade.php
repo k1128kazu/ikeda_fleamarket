@@ -9,7 +9,7 @@
         @csrf
 
         <div class="login-group">
-            <label>名前</label>
+            <label>ユーザー名</label>
             <input type="text" name="name" class="login-input" value="{{ old('name') }}">
             @error('name')
             <p class="login-error">{{ $message }}</p>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="login-group">
-            <label>パスワード（確認）</label>
+            <label>確認用パスワード</label>
             <input type="password" name="password_confirmation" class="login-input">
         </div>
 
