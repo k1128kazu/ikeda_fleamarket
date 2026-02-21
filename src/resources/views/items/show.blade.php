@@ -31,42 +31,46 @@
 
             <!-- いいね（✅復旧：押せる版） -->
             <div class="icon-box">
-                @auth
-                @if ($item->likes->where('user_id', auth()->id())->count() > 0)
-                <!-- ON：ピンク -->
-                <form method="POST" action="{{ route('like.destroy', $item->id) }}">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" style="border:none;background:none;cursor:pointer;">
-                        <img src="{{ asset('storage/material/ハートロゴ_ピンク.png') }}">
-                    </button>
-                </form>
-                @else
-                <!-- OFF：グレー -->
-                <form method="POST" action="{{ route('like.store', $item->id) }}">
-                    @csrf
-                    <button type="submit" style="border:none;background:none;cursor:pointer;">
+                <div class="icon-image">
+                    @auth
+                    @if ($item->likes->where('user_id', auth()->id())->count() > 0)
+                    <form method="POST" action="{{ route('like.destroy', $item->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" style="border:none;background:none;cursor:pointer;">
+                            <img src="{{ asset('storage/material/ハートロゴ_ピンク.png') }}">
+                        </button>
+                    </form>
+                    @else
+                    <form method="POST" action="{{ route('like.store', $item->id) }}">
+                        @csrf
+                        <button type="submit" style="border:none;background:none;cursor:pointer;">
+                            <img src="{{ asset('storage/material/ハートロゴ_デフォルト.png') }}">
+                        </button>
+                    </form>
+                    @endif
+                    @endauth
+
+                    @guest
+                    <a href="{{ route('login') }}">
                         <img src="{{ asset('storage/material/ハートロゴ_デフォルト.png') }}">
-                    </button>
-                </form>
-                @endif
-                @endauth
+                    </a>
+                    @endguest
+                </div>
 
-                @guest
-                <a href="{{ route('login') }}">
-                    <img src="{{ asset('storage/material/ハートロゴ_デフォルト.png') }}">
-                </a>
-                @endguest
-
-                <span>{{ $item->likes->count() }}</span>
+                <div class="icon-count">
+                    {{ $item->likes->count() }}
+                </div>
             </div>
-
             <!-- コメント -->
             <div class="icon-box">
-                <img src="{{ asset('storage/material/ふきだしロゴ.png') }}">
-                <span>{{ $item->comments->count() }}</span>
+                <div class="icon-image">
+                    <img src="{{ asset('storage/material/ふきだしロゴ.png') }}">
+                </div>
+                <div class="icon-count">
+                    {{ $item->comments->count() }}
+                </div>
             </div>
-
         </div>
 
         <!-- 購入ボタン -->

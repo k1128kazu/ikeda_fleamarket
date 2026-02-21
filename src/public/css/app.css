@@ -583,7 +583,6 @@ body {
     align-items: center;
     margin-bottom: 40px;
 }
-
 .profile-circle {
     width: 120px;
     height: 120px;
@@ -2023,14 +2022,12 @@ a.sell-btn {
     align-items: center;
     justify-content: space-between;
 }
-
 .profile-image {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
 }
-
 .profile-name {
     font-size: 20px;
     font-weight: bold;
@@ -3141,4 +3138,39 @@ main .item-index a:active {
 .comment-content {
     margin-left: 50px;
     /* 画像分インデント */
+}
+.detail-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.icon-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-count {
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+.comment-btn {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 16px;
+    border-radius: 6px;
+}
+/* プロフィール編集：画像行だけを左寄せ横並びにする */
+.profile-edit-image-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+}
+.profile-image-area {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
 }
