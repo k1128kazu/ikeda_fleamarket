@@ -15,7 +15,10 @@ class ProfileRequest extends FormRequest
     {
         return [
             'name'     => ['required', 'string', 'max:20'],
-            'postcode' => ['required', 'string'],
+            'postcode' => [
+                'required',
+                'regex:/^\d{3}-\d{4}$/',
+            ],
             'address'  => ['required', 'string'],
             'building' => ['nullable', 'string'],
             'image'    => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
@@ -28,6 +31,7 @@ class ProfileRequest extends FormRequest
             'name.required'     => 'ユーザー名を入力してください',
             'name.max'          => 'ユーザー名は20文字以内で入力してください',
             'postcode.required' => '郵便番号を入力してください',
+            'postcode.regex'    => '郵便番号はハイフンありの8文字で入力してください',
             'address.required'  => '住所を入力してください',
             'image.image'       => '画像ファイルを選択してください',
             'image.mimes'       => '画像は jpg / jpeg / png のみ対応しています',

@@ -385,6 +385,10 @@ Checkout 画面にクレジットカードのみ表示される場合があり�
 - バリデーションは FormRequest を使用しています
 - 動作確認後に修正を行った場合は、必ずテストを再実行してください
 
+## 12. URL
+- トップページ    http://localhost/  
+- ログインページ  http://localhost/login
+- 会員登録ページ  http://localhost/register
 ---
 
 以上の手順に従うことで、本システムを構築・起動・動作確認できます。

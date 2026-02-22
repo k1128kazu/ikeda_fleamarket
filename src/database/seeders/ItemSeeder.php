@@ -36,10 +36,10 @@ class ItemSeeder extends Seeder
             ],
             [
                 'user_id' => 3,
-                'name' => '玉ねぎ三束',
+                'name' => '玉ねぎ３束',
                 'price' => 300,
                 'brand' => 'なし',
-                'description' => '新鮮な玉ねぎの３束セットです。',
+                'description' => '新鮮な玉ねぎ3束のセット',
                 'image_path' => 'items/iLoveIMG+d.jpg',
                 'condition' => 'やや傷や汚れあり',
                 'is_sold' => false,

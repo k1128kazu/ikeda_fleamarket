@@ -87,34 +87,24 @@ class ProfileController extends Controller
     /**
      * 初回プロフィール保存
      */
-    public function storeInitial(Request $request)
+    public function storeInitial(ProfileRequest $request)
     {
-        $request->validate(
-            [
-                'name'        => ['required'],
-                'postal_code' => ['required'],
-                'address01'   => ['required'],
-            ],
-            [
-                'name.required'        => 'ユーザー名を入力してください',
-                'postal_code.required' => '郵便番号を入力してください',
-                'address01.required'   => '住所を入力してください',
-            ]
-        );
+        $validated = $request->validated();
+
         $user = Auth::user();
 
-        if ($request->hasFile('profile_image')) {
-            $path = $request->file('profile_image')->store('user', 'public');
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('user', 'public');
             $user->image = $path;
         }
 
-        // ★★★ ここが最重要 ★★★
+        // ★ フィールド名を ProfileRequest に合わせる
         $user->name     = $request->name;
-        $user->postcode = $request->postal_code;
-        $user->address  = $request->address01;
-        $user->building = $request->address02;
+        $user->postcode = $request->postcode;
+        $user->address  = $request->address;
+        $user->building = $request->building;
 
         $user->save();
 
-        return redirect()->route('profile.show');    }
-}
+        return redirect()->route('profile.show');
+    }}

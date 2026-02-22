@@ -23,13 +23,13 @@
                 画像を選択する
                 <input
                     type="file"
-                    name="profile_image"
+                    name="image"
                     id="profile_image"
                     accept="image/*"
                     hidden>
             </label>
 
-            @error('profile_image')
+            @error('image')
             <p class="form-error">{{ $message }}</p>
             @enderror
         </div>
@@ -49,9 +49,9 @@
         <div class="profile-group">
             <label>郵便番号</label>
             <input type="text"
-                name="postal_code"
-                value="{{ old('postal_code', $user->postal_code) }}">
-            @error('postal_code')
+                name="postcode"
+                value="{{ old('postcode', $user->postcode) }}">
+            @error('postcode')
             <p class="form-error">{{ $message }}</p>
             @enderror
         </div>
@@ -60,9 +60,9 @@
         <div class="profile-group">
             <label>住所</label>
             <input type="text"
-                name="address01"
-                value="{{ old('address01', $user->address01) }}">
-            @error('address01')
+                name="address"
+                value="{{ old('address', $user->address) }}">
+            @error('address')
             <p class="form-error">{{ $message }}</p>
             @enderror
         </div>
@@ -71,8 +71,8 @@
         <div class="profile-group">
             <label>建物名</label>
             <input type="text"
-                name="address02"
-                value="{{ old('address02', $user->address02) }}">
+                name="building"
+                value="{{ old('building', $user->building) }}">
         </div>
 
         <button type="submit" class="profile-btn">
