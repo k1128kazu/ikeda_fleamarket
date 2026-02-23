@@ -36,6 +36,7 @@ class ProfileRequest extends FormRequest
             'image.image'       => '画像ファイルを選択してください',
             'image.mimes'       => '画像は jpg / jpeg / png のみ対応しています',
             'image.max'         => '画像サイズは2MB以内にしてください',
+            'image.uploaded'    => '画像サイズは2MB以内にしてください',
         ];
     }
 }

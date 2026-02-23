@@ -146,7 +146,6 @@
 
     </form>
 </div>
-
 {{-- 画像プレビュー用JS --}}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -159,18 +158,7 @@
             const file = this.files[0];
             if (!file) return;
 
-            const MAX_SIZE = 1024 * 1024; // 1MB
-
-            // ★ サイズチェック（ここが本命）
-            if (file.size > MAX_SIZE) {
-                alert('画像サイズが大きすぎます（1MB以内にしてください）');
-                input.value = ''; // 選択リセット
-                preview.src = '';
-                preview.style.display = 'none';
-                return;
-            }
-
-            // ★ プレビュー表示（サイズOK時のみ）
+            // ★ サイズチェックはしない（Laravelに任せる）
             preview.src = URL.createObjectURL(file);
             preview.style.display = 'block';
         });
